@@ -16,6 +16,7 @@
 		023CF3D3224CF5C300329F9F /* DrawingToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF3D2224CF5C300329F9F /* DrawingToolTests.swift */; };
 		023CF3DE224CF5C300329F9F /* DrawingToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF3DD224CF5C300329F9F /* DrawingToolUITests.swift */; };
 		023CF3EC224CF5DA00329F9F /* GraphicsContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF3EB224CF5DA00329F9F /* GraphicsContextView.swift */; };
+		023CF3EE224D173300329F9F /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023CF3ED224D173300329F9F /* Line.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		023CF3DD224CF5C300329F9F /* DrawingToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingToolUITests.swift; sourceTree = "<group>"; };
 		023CF3DF224CF5C300329F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023CF3EB224CF5DA00329F9F /* GraphicsContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsContextView.swift; sourceTree = "<group>"; };
+		023CF3ED224D173300329F9F /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				023CF3C9224CF5C300329F9F /* Info.plist */,
 				023CF3C1224CF5C200329F9F /* DrawingTool.xcdatamodeld */,
 				023CF3EB224CF5DA00329F9F /* GraphicsContextView.swift */,
+				023CF3ED224D173300329F9F /* Line.swift */,
 			);
 			path = DrawingTool;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				023CF3EC224CF5DA00329F9F /* GraphicsContextView.swift in Sources */,
 				023CF3BB224CF5C200329F9F /* AppDelegate.swift in Sources */,
 				023CF3C3224CF5C200329F9F /* DrawingTool.xcdatamodeld in Sources */,
+				023CF3EE224D173300329F9F /* Line.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

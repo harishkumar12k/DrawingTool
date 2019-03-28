@@ -10,39 +10,66 @@ import UIKit
 
 class GraphicsContextView: UIView {
     
-    var Lines = [[CGPoint]]()
-    
+    var Lines = [IndividualLine]()
+    var LineColor = UIColor.black.cgColor
+    var LineWidth : CGFloat = 1
+
     //MARK - Draw the View
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         let context = UIGraphicsGetCurrentContext()
-        context?.setStrokeColor(UIColor.red.cgColor)
-        context?.setLineWidth(5)
         context?.setLineCap(.round)
-        for Line in Lines {
-            for (x, y) in Line.enumerated(){
-                if x == 0 {
-                    context?.move(to: y)
+        for LineSet in Lines {
+            context?.setStrokeColor(LineSet.LineColor)
+            context?.setLineWidth(LineSet.LineWidth)
+            for (index, point) in LineSet.Line.enumerated(){
+                if index == 0 {
+                    context?.move(to: point)
                 } else {
-                    context?.addLine(to: y)
+                    context?.addLine(to: point)
                 }
             }
+            context?.strokePath()
         }
-        context?.strokePath()
     }
     
     //Initialize the empty Line
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        Lines.append([CGPoint]())
+        Lines.append(IndividualLine(LineWidth: LineWidth, LineColor: LineColor, Line: [CGPoint]()) )
     }
     
     //Get points of draw
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let point = touches.first?.location(in: self) else {return}
         guard var PreviousLine = Lines.popLast() else {return}
-        PreviousLine.append(point)
+        PreviousLine.Line.append(point)
         Lines.append(PreviousLine)
         setNeedsDisplay()
+    }
+    
+    //Remove last Line
+    func undoDrawing() {
+        if Lines.count > 0{
+            _ = Lines.popLast()
+            setNeedsDisplay()
+        }
+    }
+    
+    //Clear all Lines
+    func clearDrawing() {
+        if Lines.count > 0{
+            Lines.removeAll()
+            setNeedsDisplay()
+        }
+    }
+    
+    func changeColor(color: UIColor) {
+        self.LineColor = color.cgColor
+    }
+    
+    
+    func changeSize(widthSize: CGFloat) {
+        self.LineWidth = widthSize
     }
     
 }
